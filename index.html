@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lasharne website project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/solution.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @font-face {
+        font-family: myFont;
+        src: url("./Fonts/MONARK.otf");
+        font-display: swap;
+      }
+
+      :root {
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --overlay-light: rgba(255, 255, 255, 0.9);
+        --overlay-dark: rgba(0, 0, 0, 0.7);
+        --min-width: 992px; /* Minimum width to maintain desktop layout */
+        --bg-primary: #f8f9ff;
+        --bg-accent: #e8ecff;
+        --pattern-color: rgba(77, 91, 206, 0.04);
+      }
+
+      body {
+        min-width: var(--min-width);
+        background: linear-gradient(135deg, var(--bg-primary), var(--bg-accent));
+        background-attachment: fixed;
+        position: relative;
+        overflow-x: auto;
+      }
+
+      /* Subtle dot pattern overlay */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+          radial-gradient(var(--pattern-color) 1px, transparent 1px),
+          radial-gradient(var(--pattern-color) 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-position: 0 0, 10px 10px;
+        pointer-events: none;
+      }
+
+      .container, .container-fluid {
+        min-width: var(--min-width);
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      /* Section styling with background */
+      section, .container {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        padding: 2rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+      }
+
+      h1,
+      h2 {
+        font-family: myFont, system-ui, -apple-system, sans-serif;
+        text-align: center;
+      }
+
+      /* Portfolio section styles */
+      .portfolio-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+
+      .portfolio-title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #0d6efd;
+        margin: 1rem auto;
+      }
+
+      .project-card {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px var(--shadow-color);
+        transition: transform 0.3s ease;
+        margin-bottom: 2rem;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .project-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--overlay-dark);
+        color: white;
+        padding: 2rem;
+        opacity: 0.95;
+      }
+
+      .project-overlay h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .project-overlay p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Separate box styles */
+      .box1 {
+        background: none;
+        margin-bottom: 3rem;
+      }
+
+      .box2,
+      .box3 {
+        background: none;
+        height: 100%;
+      }
+
+      .tech-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        margin: 0 0.5rem 0.5rem 0;
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--Hero Section (about me and my back ground)-->
+    <div class="container-fluid">
+      <section id="title">
+        <div class="px-4 py-5">
+          <div class="row flex-row-reverse align-items-center g-5 py-5">
+            <div class="col-5">
+              <img
+                src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Prescription02&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Twinkle&skinColor=Brown"
+                class="d-block mx-auto img-fluid"
+                alt="Avatar"
+                width="700"
+                height="300"
+                loading="lazy"
+              />
+            </div>
+            <div class="col-7 text-center">
+              <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+                Lasharne Burton
+              </h1>
+              <p class="lead">
+                Junior Full stack developer, i love to make things. Welcome to
+                my world.
+              </p>
+              <div class="d-flex justify-content-center">
+                <a
+                  href="https://github.com/lasharnea"
+                  class="btn btn-info btn-lg px-4 me-md-2"
+                >
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-github mb-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                      />
+                    </svg> </span
+                  >Github
+                </a>
+                <a
+                  href="mailto:lasharnea@hotmail.com"
+                  class="btn btn-outline-secondary btn-lg px-4"
+                >
+                  Contact Me
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--about me-->
+      <section id="about me">
+        <div class="container py-5">
+          <h1 class="text-body-emphasis">About Me</h1>
+          <p class="col-lg-8 mx-auto lead">
+            Hello! I'm Lasharne Burton, a passionate junior full-stack developer
+            with a love for creating innovative web applications. With a strong
+            foundation in both front-end and back-end technologies, I enjoy
+            bringing ideas to life through code. My journey into web development
+            has been fueled by curiosity and a desire to solve real-world
+            problems. When I'm not coding, I love exploring new tech trends and
+            enhancing my skills. Welcome to my portfolio, where I showcase my
+            projects and share my enthusiasm for web development!
+          </p>
+        </div>
+      </section>
+
+      <!--Portfolio-->
+      <div class="container py-5">
+        <h1 class="portfolio-title text-center">Featured Projects</h1>
+        <div class="row g-4">
+          <!-- Project 1 -->
+          <div class="col-12">
+            <div class="project-card box1">
+              <img
+                src="./Images/RPG.png"
+                alt="RPG Game Project"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <h2>RPG Adventure Game</h2>
+                <p>
+                  An immersive role-playing game built with modern web
+                  technologies. Features interactive combat, character
+                  progression, and a rich storyline.
+                </p>
+                <div class="mb-3">
+                  <span class="tech-badge">HTML</span>
+                  <span class="tech-badge">CSS</span>
+                  <span class="tech-badge">JavaScript</span>
+                </div>
+                <a
+                  href="https://lasharnea.github.io/Role-playing-game/"
+                  class="btn btn-primary btn-lg"
+                  >View Project</a
+                >
+                <a
+                  href="https://github.com/lasharnea/Role-playing-game.git"
+                  class="btn btn-outline-light btn-lg ms-2"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="col-6">
+            <div class="project-card box2">
+              <img
+                src="./Images/Move-it.png"
+                alt="Move-it Task Manager"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <h2>Move-it Website</h2>
+                <p>
+                  A website for booking services to assist with moving and
+                  relocation items.
+                </p>
+                <div class="mb-3">
+                  <span class="tech-badge">HTML</span>
+                  <span class="tech-badge">Bootstrap</span>
+                </div>
+                <a
+                  href="https://lasharnea.github.io/Move-it/"
+                  class="btn btn-primary"
+                  >View Project</a
+                >
+                <a
+                  href="https://github.com/lasharnea/Move-it.git"
+                  class="btn btn-outline-light ms-2"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="col-6">
+            <div class="project-card box3">
+              <img
+                src="./Images/b-day invite.png"
+                alt="Birthday Invitation Creator"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <h2>Digital Invitation</h2>
+                <p>Created beautiful, animated birthday invitation.</p>
+                <div class="mb-3">
+                  <span class="tech-badge">HTML</span>
+                </div>
+                <a
+                  href="https://lasharnea.github.io/Digital-birthday-invitation-/"
+                  class="btn btn-primary"
+                  >View Project</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- contact me-->
+      <section class="py-5">
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-8">
+              <span class="text-muted">Let's Talk</span>
+              <h1 class="display-5 fw-bold mb-3">Contact Me</h1>
+              <p class="lead">
+                Feel free to reach out for collaborations or just a friendly
+                hello! I'm always open to discussing new projects, creative
+                ideas, or opportunities to be part of your visions.
+              </p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6 mt-2">
+              <form>
+                <div class="row justify-content-center">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <input
+                        class="form-control bg-light"
+                        placeholder="Name"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <input
+                        class="form-control bg-light"
+                        placeholder="Email"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="mb-3">
+                      <textarea
+                        class="form-control bg-light"
+                        placeholder="Your message"
+                        rows="4"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="d-grid">
+                      <a
+                        href="mailto:lasharnea@hotmail.com"
+                        class="btn btn-primary"
+                        type="submit"
+                        >Send message</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--Footer-->
+      <div class="container">
+        <footer
+          class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+        >
+          <div class="col-md-4 d-flex align-items-center">
+            <a
+              href="/"
+              class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
+              aria-label="Bootstrap"
+            >
+              <svg class="bi" width="30" height="24" aria-hidden="true">
+                <use xlink:href="#bootstrap"></use>
+              </svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary"
+              >© 2025 Lasharne Burton</span>
+          </div>
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="text-body-secondary" href="https://www.linkedin.com/in/lasharne-burton-williams-092690a6" aria-label="Linkedin"
+                ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+</svg> <use xlink:href="#linkedin"></use></svg
+              ></a>
+          </ul>
+        </footer>
+      </div>
+  </body>
+</html>
